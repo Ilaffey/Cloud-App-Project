@@ -1,0 +1,62 @@
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contactNumber %>
+    <%= form.number_field :contactNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob %>
+    <%= form.date_select :dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condition %>
+    <%= form.text_field :condition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Doctor %>
+    <%= form.text_field :Doctor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currentRoom %>
+    <%= form.text_field :currentRoom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patientEntryDate %>
+    <%= form.datetime_select :patientEntryDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patientDepartureDate %>
+    <%= form.datetime_select :patientDepartureDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :RecordlastUpdated %>
+    <%= form.datetime_select :RecordlastUpdated %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
